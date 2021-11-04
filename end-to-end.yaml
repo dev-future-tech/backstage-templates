@@ -1,0 +1,39 @@
+apiVerion: backstage.io/v1/beta2
+kind: Template
+metadata:
+  name: end-to-end-microservice
+  title: End to End Microservice Scaffold
+  description: |
+    Creates a project and sets it up in a repo and Jenkins
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Enter project details
+      required:
+        - projectName
+        - repoUrl
+      properties:
+        projectName:
+          title: Project Name
+          type: string
+          description: Unique name for project
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        repoUrl:
+          title: Repository URL
+          type: string
+          description: URL to code repository
+  steps:
+    - id: fetch-projet
+      name: Get project details
+      action: nationalgrid:create-jenkins-job
+      input:
+        url: ./template
+        values:
+          projectName: '{{ parameters.projectName }}'
+          repoUrl: '{{ parameters.repoUrl }}'
+  output:
+    remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
+
