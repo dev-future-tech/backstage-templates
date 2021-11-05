@@ -30,10 +30,8 @@ spec:
       name: Get project details
       action: nationalgrid:create-jenkins-job
       input:
-        url: ./template
-        values:
-          projectName: '{{ parameters.projectName }}'
-          repoUrl: '{{ parameters.repoUrl }}'
+        projectName: '{{ parameters.projectName }}'
+        repoUrl: '{{ parameters.repoUrl }}'
   output:
     remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
 
