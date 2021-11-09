@@ -86,7 +86,7 @@ spec:
       action: fetch:template
       input:
         url: ./jenkins
-        targetPath: ./config.xml'
+        targetPath: ./config-output
       values:
         jobName: '{{ parameters.projectName }}'
         repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
@@ -97,6 +97,7 @@ spec:
       action: nationalgrid:create-jenkins-job
       input:
         projectName: '{{ parameters.projectName }}'
+        jobFile: './config-output/multi-branch.xml'
   output:
     remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
 
