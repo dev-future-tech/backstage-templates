@@ -46,6 +46,8 @@ spec:
           ui:options:
             allowedHosts:
               - bitbucket.com
+              - github.com
+              - dev.azure.com
     - title: Enter Jenkins Details
       required:
         - projectName
