@@ -1,4 +1,4 @@
-apiVersion: backstage.io/v1/beta2
+apiVersion: backstage.io/v1beta2
 kind: Template
 metadata:
   name: end-to-end-microservice
@@ -91,10 +91,8 @@ spec:
       name: Get project details
       action: nationalgrid:create-jenkins-job
       input:
-        url: ./template
-        values:
-          projectName: '{{ parameters.projectName }}'
-          repoUrl: '{{ parameters.repoUrl }}'
+        projectName: '{{ parameters.projectName }}'
+        repoUrl: '{{ parameters.repoUrl }}'
   output:
     remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
 
