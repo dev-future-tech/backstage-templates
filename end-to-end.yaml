@@ -14,8 +14,6 @@ spec:
         - component_id
         - owner
         - java_package_name
-        - projectName
-        - repoUrl
       properties:
         component_id:
           title: Name
