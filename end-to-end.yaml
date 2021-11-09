@@ -86,7 +86,7 @@ spec:
       action: fetch:template
       input:
         url: ./jenkins
-        targetPath: '/tmp/config.xml'
+        targetPath: ./config.xml'
       values:
         jobName: '{{ parameters.projectName }}'
         repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
