@@ -35,10 +35,20 @@ spec:
           ui:options:
             allowedKinds: 
               - Group
+   - title: Choose a location  
+      required:
+        - repoUrl
+      properties: 
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
     - title: Enter Jenkins Details
       required:
         - projectName
-        - repoUrl
       properties:
         projectName:
           title: Project Name
