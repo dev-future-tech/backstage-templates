@@ -45,7 +45,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com
+              - bitbucket.com
     - title: Enter Jenkins Details
       required:
         - projectName
@@ -96,7 +96,6 @@ spec:
       action: nationalgrid:create-jenkins-job
       input:
         projectName: '{{ parameters.projectName }}'
-        repoUrl: '{{ parameters.repoUrl }}'
   output:
     remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
 
