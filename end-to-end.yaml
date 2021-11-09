@@ -73,9 +73,8 @@ spec:
           owner: '{{ parameters.owner }}'
           destination: '{{ parseRepoUrl parameters.repoUrl }}'
           http_port: 8080
-
     - id: publish
-      name: Publish
+      name: Publish to SCM
       action: publish:github
       input:
         allowedHosts: ['github.com']
@@ -83,17 +82,18 @@ spec:
         repoUrl: '{{ parameters.repoUrl }}'
         repoVisibility: 'public'
     - id: fetch-job-template
-      name: CreateJobConfig
+      name: Create Jenkins config from Template
       action: fetch:template
       input:
         url: ./jenkins
+        targetPath: '/tmp/config.xml'
       values:
         jobName: '{{ parameters.projectName }}'
         repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
         scmId: '{{ generateScmId }}'
         jenkinsFile: '{{ parameters.jenkinsFile }}'
     - id: create-jenkins-job
-      name: Get project details
+      name: Create Jenkins Job
       action: nationalgrid:create-jenkins-job
       input:
         projectName: '{{ parameters.projectName }}'
