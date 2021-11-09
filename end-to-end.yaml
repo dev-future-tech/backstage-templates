@@ -45,9 +45,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - bitbucket.com
               - github.com
-              - dev.azure.com
     - title: Enter Jenkins Details
       required:
         - projectName
@@ -78,9 +76,9 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:bitbucket
+      action: publish:github
       input:
-        allowedHosts: ['bitbucket.com']
+        allowedHosts: ['github.com']
         description: 'This is {{ parameters.component_id }}'
         repoUrl: '{{ parameters.repoUrl }}'
     - id: fetch-job-template
