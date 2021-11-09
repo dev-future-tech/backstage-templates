@@ -57,10 +57,6 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-        repoUrl:
-          title: Repository URL
-          type: string
-          description: URL to code repository
   steps:
     - id: template
       name: Fetch Skeleton + Template
