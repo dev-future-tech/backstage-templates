@@ -57,6 +57,15 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
+        jenkinsFile:
+          title: Jenkins Build file
+          type: string
+          description: location of the Jenkinsfile in the project relative to the project root
+        credentialsId:
+          title: Jenkins Credentials Identifier
+          type: string
+          description: Identifier for credentials in Jenkins to enable connectivity to the SCM Server.
+
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -90,8 +99,9 @@ spec:
       values:
         jobName: '{{ parameters.projectName }}'
         repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
-        scmId: '{{ generateScmId }}'
+        scmId: '123456'
         jenkinsFile: '{{ parameters.jenkinsFile }}'
+        credentialsId: '{{ parameters.credentialsId }}'
     - id: create-jenkins-job
       name: Create Jenkins Job
       action: nationalgrid:create-jenkins-job
