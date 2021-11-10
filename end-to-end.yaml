@@ -97,8 +97,9 @@ spec:
         url: ./jenkins
         targetPath: ./config-output
         values:
+          description: 'This is {{ parameters.component_id }}'
           jobName: '{{ parameters.projectName }}'
-          repoUrl: '{{ parameters.repoUrl }}'
+          repoUrl: '{{ parseRepoUrl parameters.repoUrl }}'
           scmId: '123456'
           jenkinsFile: '{{ parameters.jenkinsFile }}'
           credentialsId: '{{ parameters.credentialsId }}'
