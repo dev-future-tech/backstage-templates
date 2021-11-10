@@ -98,7 +98,7 @@ spec:
         targetPath: ./config-output
         values:
           jobName: '{{ parameters.projectName }}'
-          repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
+          repoUrl: '{{ parameters.repoUrl }}'
           scmId: '123456'
           jenkinsFile: '{{ parameters.jenkinsFile }}'
           credentialsId: '{{ parameters.credentialsId }}'
