@@ -96,12 +96,12 @@ spec:
       input:
         url: ./jenkins
         targetPath: ./config-output
-      values:
-        jobName: '{{ parameters.projectName }}'
-        repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
-        scmId: '123456'
-        jenkinsFile: '{{ parameters.jenkinsFile }}'
-        credentialsId: '{{ parameters.credentialsId }}'
+        values:
+          jobName: '{{ parameters.projectName }}'
+          repoUrl: '{{  parseRepoUrl parameters.repoUrl }}'
+          scmId: '123456'
+          jenkinsFile: '{{ parameters.jenkinsFile }}'
+          credentialsId: '{{ parameters.credentialsId }}'
     - id: create-jenkins-job
       name: Create Jenkins Job
       action: nationalgrid:create-jenkins-job
