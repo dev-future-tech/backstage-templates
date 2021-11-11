@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1beta2
 kind: Template
 metadata:
-  name: end-to-end-microservice
-  title: End to End Microservice Scaffold
+  name: jenkins-only
+  title: Connect Jenkins Job
   description: |
     Connects a project 
 spec:
