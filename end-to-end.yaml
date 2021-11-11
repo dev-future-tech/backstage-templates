@@ -113,7 +113,7 @@ spec:
       name: Register Catalog Info
       action: catalog:register
       input:
-        catalogInfoUrl: '{{ssteps.publish.output.remoteUrl}}'
+        catalogInfoUrl: '{{steps.publish.output.remoteUrl}}/catalog-info.yaml'
   output:
     remoteUrl: '{{ steps.publish.output.remoteUrl }}'
 
