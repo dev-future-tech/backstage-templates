@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1beta2
+kind: Template
+metadata:
+  name: end-to-end-microservice
+  title: End to End Microservice Scaffold
+  description: |
+    Connects a project 
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Enter Jenkins Details
+      required:
+        - projectName
+      properties:
+        projectName:
+          title: Project Name
+          type: string
+          description: Unique name for project
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        jenkinsFile:
+          title: Jenkins Build file
+          type: string
+          description: location of the Jenkinsfile in the project relative to the project root
+        credentialsId:
+          title: Jenkins Credentials Identifier
+          type: string
+          description: Identifier for credentials in Jenkins to enable connectivity to the SCM Server.
+  steps:
+    - id: create-jenkins-job
+      name: Create Jenkins Job
+      action: nationalgrid:create-jenkins-job
+      input:
+        projectName: '{{ parameters.projectName }}'
+        jobFile: './config-output/multi-branch.xml'
