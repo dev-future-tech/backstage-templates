@@ -113,7 +113,7 @@ spec:
       name: Register Catalog Info
       action: catalog:register
       input:
-        catalogInfoUrl: '{{ "https://" parameters.repoUrl + "/" + parameters.owner + "/" + parameters. + "/catalog-info.yaml" }}'
+        catalogInfoUrl: '{{ "https://" parameters.repoUrl + "/" + parameters.owner + "/" + parameters.repo + "/catalog-info.yaml" }}'
 
   output:
     remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
