@@ -29,6 +29,19 @@ spec:
           type: string
           description: Identifier for credentials in Jenkins to enable connectivity to the SCM Server.
   steps:
+    - id: fetch-job-template
+      name: Create Jenkins config from Template
+      action: fetch:template
+      input:
+        url: ./jenkins
+        targetPath: ./config-output
+        values:
+          description: 'This is {{ parameters.component_id }}'
+          jobName: '{{ parameters.projectName }}'
+          destination: '{{ parseRepoUrl parameters.repoUrl }}'
+          scmId: '123456'
+          jenkinsFile: '{{ parameters.jenkinsFile }}'
+          credentialsId: '{{ parameters.credentialsId }}'
     - id: create-jenkins-job
       name: Create Jenkins Job
       action: nationalgrid:create-jenkins-job

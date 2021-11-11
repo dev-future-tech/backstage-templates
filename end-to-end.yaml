@@ -109,7 +109,11 @@ spec:
       input:
         projectName: '{{ parameters.projectName }}'
         jobFile: './config-output/multi-branch.xml'
-
+    - id: register-catalog-info
+      name: Register Catalog Info
+      action: catalog:register
+      input:
+        catalogInfoUrl: '{{ssteps.publish.output.remoteUrl}}'
   output:
-    remoteUrl: '{{ steps.fetch-project.output.remoteUrl }}'
+    remoteUrl: '{{ steps.publish.output.remoteUrl }}'
 
